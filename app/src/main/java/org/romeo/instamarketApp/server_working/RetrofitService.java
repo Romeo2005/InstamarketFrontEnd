@@ -15,6 +15,8 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 public interface RetrofitService {
+
+    //I know that transporting passwords in url is not good practice, it's just for test
     @GET("getInstagramUser")
     Call<InstagramUser> getInstagramUser(@Query("username") String username, @Query("password") String password);
 
