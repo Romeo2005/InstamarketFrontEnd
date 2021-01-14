@@ -11,7 +11,7 @@
     <string name="filters_title">Filters</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="incorrect">Username or password is incorrect</string>
+    <string name="incorrect_auth_data">Username or password is incorrect</string>
     <string name="user_icon">your user icon</string>
     <string name="country">Enter your country</string>
     <string name="profession">Enter your profession</string>

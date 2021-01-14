@@ -21,6 +21,7 @@ public class UserFragment extends Fragment {
 
     public static final String USER_JSON = "USER_JSON";
     private InstagramUser user;
+    private View root;
 
     public UserFragment() {
     }
@@ -43,13 +44,9 @@ public class UserFragment extends Fragment {
         user = new Gson().fromJson(
                 getArguments().getString(USER_JSON),
                 InstagramUser.class);
-
-        initUserProperties();
     }
 
     private void initUserProperties() {
-        View root = getView();
-
         assert root != null;
 
         View name = root.findViewById(R.id.property_name);
@@ -82,6 +79,8 @@ public class UserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        root = inflater.inflate(R.layout.fragment_user, container, false);
+        initUserProperties();
+        return root;
     }
 }

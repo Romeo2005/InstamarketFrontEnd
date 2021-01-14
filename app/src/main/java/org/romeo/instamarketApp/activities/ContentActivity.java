@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.brunocvcunha.instagram4j.requests.payload.InstagramUser;
 import org.jetbrains.annotations.NotNull;
 import org.romeo.instamarketApp.R;
+import org.romeo.instamarketApp.activities.authorisatation.MainActivity;
 import org.romeo.instamarketApp.fragments.AddsFragment;
 import org.romeo.instamarketApp.fragments.FiltersFragment;
 import org.romeo.instamarketApp.fragments.UserFragment;
@@ -28,12 +29,12 @@ public class ContentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
+        user = new Gson().fromJson(getIntent().getStringExtra(MainActivity.USER_JSON), InstagramUser.class);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        user = new Gson().fromJson(getIntent().getStringExtra(MainActivity.USER_JSON), InstagramUser.class);
     }
 
     class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -52,11 +53,11 @@ public class ContentActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new AddsFragment();
+                    return new FiltersFragment();
                 case 1:
                     return UserFragment.newInstance(user);
                 case 2:
-                    return new FiltersFragment();
+                    return new AddsFragment();
             }
 
             return null;
