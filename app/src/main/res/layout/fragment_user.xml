@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.UserFragment">
+    tools:context=".activities.content.fragments.user.UserFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,12 +22,6 @@
 
             <include
                 android:id="@+id/property_country"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                layout="@layout/user_property"/>
-
-            <include
-                android:id="@+id/property_profession"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/user_property"/>

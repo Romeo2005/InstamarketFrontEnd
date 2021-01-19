@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ContentActivity">
+    tools:context=".activities.content.ContentActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.InstamarketApp.AppBarOverlay">
@@ -28,19 +29,16 @@
             android:background="?attr/colorPrimary">
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/adds_tab"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/adds_title"/>
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/user_tab"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/user_title"/>
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/filters_tab"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/filters_title"/>

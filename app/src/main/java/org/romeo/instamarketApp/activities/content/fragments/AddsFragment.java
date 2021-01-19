@@ -1,4 +1,4 @@
-package org.romeo.instamarketApp.fragments;
+package org.romeo.instamarketApp.activities.content.fragments;
 
 import android.os.Bundle;
 
