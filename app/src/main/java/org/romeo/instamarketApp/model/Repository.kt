@@ -5,6 +5,8 @@ import org.brunocvcunha.instagram4j.requests.payload.InstagramUser
 import org.romeo.instamarketApp.model.data_model.UsernamePassword
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.net.ConnectException
+import java.net.SocketTimeoutException
 import java.security.SecureRandom
 import java.security.cert.CertificateException
 import java.security.cert.X509Certificate
@@ -13,7 +15,7 @@ import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
 object Repository {
-    private const val BASE_URL = "https://192.168.1.102:8080/"
+    private const val BASE_URL = "https://192.168.0.111:8080/"
     private const val TAG = "REPOSITORY"
     private val retrofitService: RetrofitService
 
@@ -31,7 +33,15 @@ object Repository {
                 UsernamePassword(username!!, password!!))
         val user: InstagramUser?
 
-        user = call.execute().body()
+        try {
+            user = call.execute().body()
+        } catch (e: ConnectException) {
+            e.printStackTrace()
+            return null
+        } catch (e: SocketTimeoutException) {
+            e.printStackTrace()
+            return null
+        }
 
         return user
     }

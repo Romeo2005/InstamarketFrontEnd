@@ -8,4 +8,6 @@ public interface AuthActivityTemplate {
     void initialize();
 
     void showError(int incorrect_auth_data);
+
+    void showError(String messageText);
 }

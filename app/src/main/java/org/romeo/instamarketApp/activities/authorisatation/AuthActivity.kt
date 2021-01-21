@@ -2,18 +2,17 @@ package org.romeo.instamarketApp.activities.authorisatation
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import org.brunocvcunha.instagram4j.requests.payload.InstagramUser
-import org.romeo.instamarketApp.R
 import org.romeo.instamarketApp.activities.content.ContentActivity
 import org.romeo.instamarketApp.databinding.ActivityAuthBinding
 import org.romeo.instamarketApp.model.CashPreferences
 
+
 class AuthActivity : AppCompatActivity(), AuthActivityTemplate {
-    private var presenter: AuthPresenter? = null
+    private lateinit var presenter: AuthPresenter
     private lateinit var binding: ActivityAuthBinding
 
     companion object {
@@ -26,7 +25,8 @@ class AuthActivity : AppCompatActivity(), AuthActivityTemplate {
         binding = ActivityAuthBinding.inflate(layoutInflater)
 
         presenter = AuthPresenter(this, CashPreferences(this))
-        presenter!!.init()
+
+        binding.presenter = presenter
     }
 
     override fun loadContentActivity(user: InstagramUser) {
@@ -36,19 +36,19 @@ class AuthActivity : AppCompatActivity(), AuthActivityTemplate {
     }
 
     override fun initialize() {
-        setContentView(binding.root)
-        binding.enterButton.setOnClickListener { v: View? ->
-            presenter!!.saveUser(
-                    binding.usernameText.text.toString(),
-                    binding.passwordText.text.toString()
-            )
+        runOnUiThread {
+            setContentView(binding.root)
         }
     }
 
-    override fun showError(messageId: Int) {
-        val message = resources.getString(messageId)
+    override fun showError(messageResourseId: Int) {
+        val message = resources.getString(messageResourseId)
         Toast.makeText(this,
                 message,
                 Toast.LENGTH_LONG).show()
+    }
+
+    override fun showError(messageText: String?) {
+        Toast.makeText(this, messageText, Toast.LENGTH_LONG).show()
     }
 }
