@@ -1,4 +1,4 @@
-package org.romeo.instamarketApp.fragments;
+package org.romeo.instamarketApp.activities.content.fragments;
 
 import android.os.Bundle;
 
@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 
 import org.romeo.instamarketApp.R;
 
+/**
+ * Not realised yet. It will be a recycler with user's filters for
+ * showing adds on it's instagram account.
+ * */
 public class FiltersFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";

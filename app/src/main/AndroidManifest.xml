@@ -14,10 +14,10 @@
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
         <activity
-            android:name=".activities.ContentActivity"
+            android:name=".activities.content.ContentActivity"
             android:label="@string/title_activity_content"
             android:theme="@style/Theme.InstamarketApp.NoActionBar" />
-        <activity android:name=".activities.authorisatation.MainActivity">
+        <activity android:name=".activities.authorisatation.AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

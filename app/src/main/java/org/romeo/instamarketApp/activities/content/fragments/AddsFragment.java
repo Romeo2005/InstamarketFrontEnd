@@ -1,4 +1,4 @@
-package org.romeo.instamarketApp.fragments;
+package org.romeo.instamarketApp.activities.content.fragments;
 
 import android.os.Bundle;
 
@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 import org.romeo.instamarketApp.R;
 
+/**
+ * Not realised yet. It will be a recycler with adds.
+ * */
 public class AddsFragment extends Fragment {
 
 

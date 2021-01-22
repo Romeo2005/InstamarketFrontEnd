@@ -15,4 +15,5 @@
     <string name="user_icon">your user icon</string>
     <string name="country">Enter your country</string>
     <string name="profession">Enter your profession</string>
+    <string name="add_logo">Add logo</string>
 </resources>
