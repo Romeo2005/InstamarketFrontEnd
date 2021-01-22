@@ -27,7 +27,7 @@
                 layout="@layout/user_property"/>
 
             <include
-                android:id="@+id/property_description"
+                android:id="@+id/property_biography"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/user_property"/>

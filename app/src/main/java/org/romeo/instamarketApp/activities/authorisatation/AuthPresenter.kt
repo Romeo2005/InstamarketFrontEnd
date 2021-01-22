@@ -3,11 +3,11 @@ package org.romeo.instamarketApp.activities.authorisatation
 import android.os.Handler
 import android.os.HandlerThread
 import org.romeo.instamarketApp.R
-import org.romeo.instamarketApp.model.CashPreferences
+import org.romeo.instamarketApp.model.PreferencesHolder
 import org.romeo.instamarketApp.model.Repository.getInstagramUserFor
 
 class AuthPresenter(private val activity: AuthActivityTemplate,
-                    private val preferences: CashPreferences) {
+                    private val preferences: PreferencesHolder) {
 
     private val userHandler: Handler
 
@@ -31,8 +31,8 @@ class AuthPresenter(private val activity: AuthActivityTemplate,
             else {
                 val user = getInstagramUserFor(username, password)
 
-                user?.let { user ->
-                    activity.loadContentActivity(user)
+                user?.let { userNotNull ->
+                    activity.loadContentActivity(userNotNull)
                 } ?: run {
                     activity.initialize()
                 }
@@ -43,10 +43,10 @@ class AuthPresenter(private val activity: AuthActivityTemplate,
     fun saveUser() {
         userHandler.post {
             val user = getInstagramUserFor(username, password)
-            user?.let { user ->
+            user?.let { userNotNull ->
 
                 preferences.saveUser(username, password)
-                activity.loadContentActivity(user)
+                activity.loadContentActivity(userNotNull)
 
                 return@let
             }

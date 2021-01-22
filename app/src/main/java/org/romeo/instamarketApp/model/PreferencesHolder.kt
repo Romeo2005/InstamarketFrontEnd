@@ -1,10 +1,10 @@
 package org.romeo.instamarketApp.model
 
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 
-class CashPreferences(activity: AppCompatActivity) {
-    private val preferences: SharedPreferences = activity.getPreferences(AppCompatActivity.MODE_PRIVATE)
+class PreferencesHolder(activity: AppCompatActivity) {
+    private val preferences = activity.getPreferences(AppCompatActivity.MODE_PRIVATE)
+
     fun saveUser(username: String?, password: String?) {
         preferences.edit()
                 .putString(USERNAME, username)
@@ -23,5 +23,4 @@ class CashPreferences(activity: AppCompatActivity) {
         const val USERNAME = "USERNAME"
         const val PASSWORD = "PASSWORD"
     }
-
 }

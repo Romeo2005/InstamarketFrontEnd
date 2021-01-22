@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/insta_logo"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="@dimen/insta_logo_size"
+            android:layout_height="@dimen/insta_logo_size"
             android:src="@drawable/insta_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

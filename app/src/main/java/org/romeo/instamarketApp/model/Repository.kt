@@ -1,5 +1,8 @@
 package org.romeo.instamarketApp.model
 
+import android.graphics.Bitmap
+import android.widget.ImageView
+import com.squareup.picasso.Picasso
 import okhttp3.OkHttpClient
 import org.brunocvcunha.instagram4j.requests.payload.InstagramUser
 import org.romeo.instamarketApp.model.data_model.UsernamePassword
@@ -15,7 +18,7 @@ import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
 object Repository {
-    private const val BASE_URL = "https://192.168.0.111:8080/"
+    private const val BASE_URL = "https://192.168.1.102:8080/"
     private const val TAG = "REPOSITORY"
     private val retrofitService: RetrofitService
 
@@ -46,7 +49,9 @@ object Repository {
         return user
     }
 
-    //TODO: Make connection safe
+    fun getImageFromUrl(url: String): Bitmap = Picasso.get().load(url).get()
+
+    //TODO: Make the connection safe after turning server into httpS
     private val unsafeOkHttpClient: OkHttpClient
         get() = try {
             // Create a trust manager that does not validate certificate chains

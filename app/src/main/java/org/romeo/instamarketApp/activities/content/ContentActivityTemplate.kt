@@ -1,5 +1,7 @@
-package org.romeo.instamarketApp.activities.content;
+package org.romeo.instamarketApp.activities.content
 
-public interface ContentActivityTemplate {
-    void initViewPager();
+import org.romeo.instamarketApp.activities.ItemWithProgressbar
+
+interface ContentActivityTemplate : ItemWithProgressbar {
+    fun initViewPager()
 }

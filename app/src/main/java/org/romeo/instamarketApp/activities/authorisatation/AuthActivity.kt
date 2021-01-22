@@ -8,7 +8,7 @@ import com.google.gson.Gson
 import org.brunocvcunha.instagram4j.requests.payload.InstagramUser
 import org.romeo.instamarketApp.activities.content.ContentActivity
 import org.romeo.instamarketApp.databinding.ActivityAuthBinding
-import org.romeo.instamarketApp.model.CashPreferences
+import org.romeo.instamarketApp.model.PreferencesHolder
 
 
 class AuthActivity : AppCompatActivity(), AuthActivityTemplate {
@@ -24,7 +24,7 @@ class AuthActivity : AppCompatActivity(), AuthActivityTemplate {
 
         binding = ActivityAuthBinding.inflate(layoutInflater)
 
-        presenter = AuthPresenter(this, CashPreferences(this))
+        presenter = AuthPresenter(this, PreferencesHolder(this))
 
         binding.presenter = presenter
     }

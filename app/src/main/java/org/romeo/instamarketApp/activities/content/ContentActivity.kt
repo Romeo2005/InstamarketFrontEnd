@@ -1,6 +1,7 @@
 package org.romeo.instamarketApp.activities.content
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import org.romeo.instamarketApp.databinding.ActivityContentBinding
 
@@ -14,6 +15,14 @@ class ContentActivity : AppCompatActivity(), ContentActivityTemplate {
         setContentView(binding.root)
 
         presenter = ContentPresenter(this)
+    }
+
+    override fun showProgressbar() {
+        binding.mainProgressBar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressbar() {
+        binding.mainProgressBar.visibility = View.INVISIBLE
     }
 
     override fun initViewPager() {
