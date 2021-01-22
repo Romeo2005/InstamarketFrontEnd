@@ -14,6 +14,12 @@ import org.romeo.instamarketApp.activities.content.fragments.AddsFragment
 import org.romeo.instamarketApp.activities.content.fragments.FiltersFragment
 import org.romeo.instamarketApp.activities.content.fragments.user.UserFragment.Companion.newInstance
 
+/**
+ * It can be an inner class in the ContentActivity.
+ * But for the clearness of the code it is transported
+ * to the separate public class.
+ * */
+
 class SectionsPagerAdapter(activity: AppCompatActivity, fm: FragmentManager?) : FragmentPagerAdapter(fm!!) {
     @StringRes
     private val tabTitles = intArrayOf(R.string.filters_title, R.string.user_title, R.string.adds_title)

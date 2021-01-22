@@ -1,5 +1,10 @@
 package org.romeo.instamarketApp.model.data_model
 
+/**
+ * A model received from the server.
+ * In future it will be shown in the
+ * AddsFragment.
+ * */
 class Add(
         var title: String,
         var src_media: String,

@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 import org.romeo.instamarketApp.R;
 
+/**
+ * Not realised yet. It will be a recycler with adds.
+ * */
 public class AddsFragment extends Fragment {
 
 

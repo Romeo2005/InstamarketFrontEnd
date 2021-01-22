@@ -2,6 +2,11 @@ package org.romeo.instamarketApp.model
 
 import androidx.appcompat.app.AppCompatActivity
 
+
+/**
+ * A class for keeping the preferences of an activity
+ * to avoid using UI classes in Presenter/ViewModel
+ * */
 class PreferencesHolder(activity: AppCompatActivity) {
     private val preferences = activity.getPreferences(AppCompatActivity.MODE_PRIVATE)
 

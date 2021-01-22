@@ -11,6 +11,9 @@ class AuthPresenter(private val activity: AuthActivityTemplate,
 
     private val userHandler: Handler
 
+    /**
+     * Connected to xml view with two-way-binding.
+     * */
     var username = ""
     var password = ""
 
@@ -21,6 +24,12 @@ class AuthPresenter(private val activity: AuthActivityTemplate,
         initialize()
     }
 
+
+    /**
+     * If user has been already entered in the app,
+     * than activity will not be loaded.
+     * The ContentActivity will be immediately started.
+     * */
     private fun initialize() {
         userHandler.post {
             val username = preferences.username
@@ -40,6 +49,10 @@ class AuthPresenter(private val activity: AuthActivityTemplate,
         }
     }
 
+    /**
+     * Saves user into SharedPreferences or shows the error
+     * in case of wrong data.
+     * */
     fun saveUser() {
         userHandler.post {
             val user = getInstagramUserFor(username, password)
@@ -48,7 +61,7 @@ class AuthPresenter(private val activity: AuthActivityTemplate,
                 preferences.saveUser(username, password)
                 activity.loadContentActivity(userNotNull)
 
-                return@let
+                return@let // Не уверен нащет уместности этого выражения.
             }
 
             activity.showError(R.string.incorrect_auth_data)

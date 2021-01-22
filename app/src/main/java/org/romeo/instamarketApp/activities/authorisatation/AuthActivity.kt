@@ -11,6 +11,16 @@ import org.romeo.instamarketApp.databinding.ActivityAuthBinding
 import org.romeo.instamarketApp.model.PreferencesHolder
 
 
+/**
+ * This is activity for user's authorisation.
+ * User enters his instagram username and password
+ * and app gets an InstagramUser object.
+ *
+ * This activity realises MVP pattern, because it
+ * is too simple to use MVVM. But it can be simple
+ * transformed into MVVM.
+ */
+
 class AuthActivity : AppCompatActivity(), AuthActivityTemplate {
     private lateinit var presenter: AuthPresenter
     private lateinit var binding: ActivityAuthBinding
@@ -41,6 +51,10 @@ class AuthActivity : AppCompatActivity(), AuthActivityTemplate {
         }
     }
 
+    /**
+     * The next 2 methods will be replaced with errorData: MutableLiveData<String>,
+     * in case of integration this activity to MVVM.
+     * */
     override fun showError(messageResourseId: Int) {
         val message = resources.getString(messageResourseId)
         Toast.makeText(this,

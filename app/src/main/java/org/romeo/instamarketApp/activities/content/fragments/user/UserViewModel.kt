@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import org.brunocvcunha.instagram4j.requests.payload.InstagramUser
 import org.romeo.instamarketApp.model.Repository
+import org.romeo.instamarketApp.model.FragmentArgumentsHolder
 
 class UserViewModel(arguments: FragmentArgumentsHolder) : ViewModel() {
 
@@ -27,6 +28,10 @@ class UserViewModel(arguments: FragmentArgumentsHolder) : ViewModel() {
         updateUserDataValue()
     }
 
+    /**
+     * Transforms an InstagramUser user object received from server
+     * into a UserState object, that will be sent to the fragment.
+     * */
     private fun updateUserDataValue() {
 
         val userState = UserState()

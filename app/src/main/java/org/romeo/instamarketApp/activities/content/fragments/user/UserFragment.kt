@@ -12,7 +12,13 @@ import com.google.gson.Gson
 import org.brunocvcunha.instagram4j.requests.payload.InstagramUser
 import org.romeo.instamarketApp.R
 import org.romeo.instamarketApp.databinding.FragmentUserBinding
+import org.romeo.instamarketApp.model.FragmentArgumentsHolder
 
+
+/**
+ * A fragment showing main info about the user.
+ * Gets an InstagramUser in start intent.
+ * */
 class UserFragment : Fragment() {
     private lateinit var binding: FragmentUserBinding
 
@@ -34,12 +40,16 @@ class UserFragment : Fragment() {
                 UserViewModelFactory(FragmentArgumentsHolder(this)))
                 .get(UserViewModel::class.java)
 
-        initLIveData()
+        initUserLiveData()
     }
 
-    private fun initLIveData() {
-        userData = viewModel.getUserData()
 
+    /**
+     * This method assigns images and labels to appropriate
+     * properties.
+     * */
+    private fun initUserLiveData() {
+        userData = viewModel.getUserData()
 
         userData.observe(this, { userState ->
             val name = binding.propertyName
@@ -64,7 +74,7 @@ class UserFragment : Fragment() {
         })
     }
 
-    // I'm not sure if it's the best solution, but it's the only one that I can implement now
+    // Не уверен нащет правильности реализации создания фрагмента
     companion object {
         private const val USER_JSON = "USER_JSON"
 

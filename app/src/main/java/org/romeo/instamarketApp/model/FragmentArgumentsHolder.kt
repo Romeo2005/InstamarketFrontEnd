@@ -1,8 +1,12 @@
-package org.romeo.instamarketApp.activities.content.fragments.user
+package org.romeo.instamarketApp.model
 
 import androidx.fragment.app.Fragment
 import org.romeo.instamarketApp.activities.authorisatation.AuthActivity
 
+/**
+ * A class for keeping the arguments of fragment
+ * to avoid using UI classes in Presenter/ViewModel
+ * */
 class FragmentArgumentsHolder(fragment: Fragment) {
     private val arguments = fragment.arguments
 

@@ -17,6 +17,14 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
+
+/**
+ *
+ * A class for working with the local Spring boot server.
+ * In the future, it will be also integrated room database
+ * for saving the adds.
+ *
+ * */
 object Repository {
     private const val BASE_URL = "https://192.168.1.102:8080/"
     private const val TAG = "REPOSITORY"
@@ -31,6 +39,11 @@ object Repository {
         retrofitService = retrofit.create(RetrofitService::class.java)
     }
 
+/**
+ *
+ * Gets a user by username and password from the server.
+ *
+ * */
     fun getInstagramUserFor(username: String?, password: String?): InstagramUser? {
         val call = retrofitService.getInstagramUser(
                 UsernamePassword(username!!, password!!))
